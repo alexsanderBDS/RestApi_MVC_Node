@@ -22,30 +22,4 @@ const postCreate = async (req, res) => {
   }
 };
 
-// const postUpdate = async (req, res) => {
-//   try {
-//     const updated = await Post.findOneAndUpdate(
-//       { _id: req.params.id, author: req.userDecodedEmail },
-//       {
-//         title: req.body.title,
-//         body: req.body.body,
-//         author: req.userDecodedEmail,
-//       }
-//     );
-
-//     res.send(updated);
-//   } catch (error) {
-//     res.send(error);
-//   }
-// };
-
-// const postDelete = async (req, res) => {
-//   const deleted = await Post.findOneAndDelete({
-//     _id: req.params.id,
-//     author: req.userDecodedEmail,
-//   });
-
-//   res.send(deleted);
-// };
-
 module.exports = { postsGet, postCreate };
