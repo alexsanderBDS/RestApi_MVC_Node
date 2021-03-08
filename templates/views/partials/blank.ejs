@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla | Update And Delete</title>
+    <%- include("./bootstrap-link.ejs") %>
+  </head>
+  <body>
+    <%- include("./navbar.ejs", {user}) %> <%- include("./modalPost.ejs",
+    {update, create, postsInDb}) %> <%- include("./boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+    <script type="text/javascript">
+      $(window).on("load", function () {
+        $("#postUpdateAndDelete").modal("show");
+      });
+    </script>
+  </body>
+</html>

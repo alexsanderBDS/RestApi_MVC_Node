@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla / Error Page</title>
+    <%- include("./bootstrap-link.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("./navbar.ejs", {user}) %>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10rem;
+        text-align: center;
+      "
+    >
+      <h1>
+        <i style="font-size: 10rem" class="far fa-frown"></i><br /><strong
+          >404 Page Not<br />Find</strong
+        >
+      </h1>
+    </div>
+    <%- include("./boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+  </body>
+</html>

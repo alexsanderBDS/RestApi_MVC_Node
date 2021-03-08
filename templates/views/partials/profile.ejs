@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla | Profile</title>
+    <%- include("./bootstrap-link.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("./navbar.ejs", {user}) %>
+
+    <div class="jumbotron jumbotron-fluid m-xl-5 border border-success">
+      <div class="container m-5">
+        <h1 class="display-4 pl-3">
+          Profile<span class="badge badge-dark ml-2"
+            ><i class="far fa-user"></i
+          ></span>
+        </h1>
+        <ul class="list-group">
+          <li class="list-group-item">
+            Last post created:&nbsp;<%=postsInDb[0] ?
+            postsInDb[0].createdAt.toLocaleString() : ""%>
+          </li>
+          <li class="list-group-item">
+            Last post updated:&nbsp;<%=postsInDb[0] ?
+            postsInDb[0].updatedAt.toLocaleString() : ""%>
+          </li>
+          <li class="list-group-item">
+            <button id="deleteAccount" class="btn btn-dark p-0">
+              Delete Account
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <%- include("./boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+  </body>
+</html>

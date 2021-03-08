@@ -1,0 +1,113 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="<%-!update && create ? 'postCreateModal' : 'postUpdateAndDelete'%>"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="postUpdateModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <% if (!update && create) { %>
+            <h5 class="modal-title" id="createModalInfo">Create new Post</h5>
+          <% } else if(update && !create) { %>
+            <h5 class="modal-title" id="updateModalInfo">Update Post</h5>
+          <% } else { %>
+            <h5 class="modal-title" id="updateModalInfo">Delete Post</h5>
+          <% } %>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if (update || create) { %>
+        <form _id="<%=postsInDb._id%>" id="<% if (!update) { %><%-'createPost'%><% } else { %><%-'updatePost'%><% } %>">
+          <div class="form-group">
+            <label for="modalTitleGroup">Title</label>
+            <% if (!update) { %>
+            <input
+              type="text"
+              class="form-control"
+              id="modalTitleGroup"
+              placeholder="Max length: 50"
+              maxlength="40"
+              name="title"
+            />
+            <% } else { %>
+              <input
+              type="text"
+              class="form-control"
+              id="modalTitleGroup"
+              placeholder="Max length: 50"
+              maxlength="40"
+              name="title"
+              value="<%-postsInDb.title%>"
+            />
+              <% } %>
+          </div>
+          <div class="form-group">
+            <label for="modalTextGroup">Text</label>
+            <% if (!update) { %>
+              <textarea
+              class="form-control"
+              id="modalTextGroup"
+              rows="2"
+              placeholder="Max length: 100"
+              maxlength="70"
+              name="body"
+            ></textarea>
+            <% } else { %>
+              <textarea
+              class="form-control"
+              id="modalTextGroup"
+              rows="2"
+              placeholder="Max length: 100"
+              maxlength="70"
+              name="body"
+            ><%-postsInDb.body%></textarea>
+
+              <% } %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <% if (update) { %>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Update
+            </button>
+          <% } else { %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">
+            New
+          </button>
+          <% } %>
+        </div>
+      </form>
+      <% } else { %>
+        <h5>Are you sure ?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button id="deletePost" _id="<%-postsInDb._id%>" type="button" class="btn btn-primary">
+            Save Changes
+          </button>
+        </div>
+        <% } %>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla | Posts</title>
+    <%- include("./bootstrap-link.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("./navbar.ejs", {user}) %>
+    <div class="jumbotron jumbotron-fluid bg-transparent">
+      <div class="d-flex align-items-center justify-content-center m-auto">
+        <h1 class="display-3">You don't have any post yet!</h1>
+      </div>
+    </div>
+    <%- include("./boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+  </body>
+</html>

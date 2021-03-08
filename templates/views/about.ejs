@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla | About</title>
+    <%- include("./partials/bootstrap-link.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("./partials/navbar.ejs", {user}) %>
+
+    <div class="jumbotron jumbotron-fluid m-xl-5 border border-success">
+      <div class="container m-5">
+        <h1 class="display-4 pl-3">
+          About | Alexsander
+        </h1>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Who Am I ?
+                </button>
+              </h5>
+            </div>
+        
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <p>I'm a web developer, as you can see I built this web app to show some of my skills with development, mainly full-stack with node.js.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Contacts
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                <ul>
+                  <li>Gmail: alexsanderb5santos@gmail.com</li>
+                  <li>Yahoo mail: alexsanderbatistadossantos@yahoo.com.br</li>
+                  <li>Linkedin:&nbsp;<a target="_blank" href="https://www.linkedin.com/in/alexsander-batista-dos-santos-1524278a">Click to stay updated and know me better.</a></li>
+                  <li>Github:&nbsp;<a target="_blank" href="https://github.com/alexsanderBDS">Click to see my projects.</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include("./partials/boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+    </script>
+  </body>
+</html>

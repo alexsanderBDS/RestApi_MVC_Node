@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bla Bla Bla</title>
+
+    <%- include("./partials/bootstrap-link.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+
+  </head>
+  <body>
+      <%- include("./partials/navbar.ejs", {user}) %>
+      <div class="container container-fluid row">
+        <img
+          class="d-block p-4 col-xs-6 img-fluid"
+          src="./assets/bla_bla_bla.svg"
+          alt="main_image"
+        />
+        <button type="button" id="index-btn" class="btn btn-outline-primary btn-lg col-xs-6 h-25 m-auto">START</button>
+      </div>
+    </div>
+    <%- include("./partials/boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+  </body>
+</html>

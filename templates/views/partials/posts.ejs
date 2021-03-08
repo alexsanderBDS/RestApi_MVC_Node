@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bla Bla Bla | Posts</title>
+    <%- include("./bootstrap-link.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/styles/global.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <%- include("./navbar.ejs", {user}) %> <% if (create) { %>
+    <button
+      type="button"
+      class="btn btn-primary mt-3"
+      data-toggle="modal"
+      data-target="#postCreateModal"
+      style="margin-left: 2rem !important"
+    >
+      Create
+    </button>
+
+    <% } %>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        margin: 2rem;
+        gap: 2rem;
+        align-items: center;
+      "
+    >
+      <% postsInDb.map((post) => { %>
+      <div class="card" style="justify-content: center">
+        <div class="card-header" style="text-transform: capitalize">
+          <%= post.title %>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p class="blockquote" style="height: 5rem"><%= post.body %></p>
+            <footer class="blockquote-footer">
+              by <cite title="Source Title"><%= post.author %></cite>
+            </footer>
+          </blockquote>
+        </div>
+        <% if (!create) { %>
+        <div class="d-flex m-2">
+          <!-- <a
+            class="btn tbn-secondary update-post"
+            href="/user/posts/update/<%=post._id%>"
+            >UPDATE</a
+          > -->
+          <button class="btn btn-secondary update-post" _id="<%=post._id%>">
+            UPDATE
+          </button>
+          <button class="btn btn-danger delete-post" _id="<%=post._id%>">
+            DELETE
+          </button>
+        </div>
+        <% } %>
+      </div>
+      <% }); %>
+    </div>
+    <%- include("./modalPost.ejs", {update}) %> <%-
+    include("./boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+  </body>
+</html>

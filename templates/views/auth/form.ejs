@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title %></title>
+    <%- include("../partials/bootstrap-link.ejs") %>
+  </head>
+  <body>
+    <%- include("../partials/navbar.ejs",{user}) %>
+    <div class="container container-fluid">
+      <h1 class="p-5"><%=title.split("|")[1].trim()%></h1>
+      <form class="pl-5" id="auth-form">
+        <div class="form-group mb-4">
+          <label for="email-form">Email address</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="email-form"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            autocomplete="username"
+            required
+            value="alexsander@google.com"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="password-form"
+            >Password<span class="message-password"></span
+          ></label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="password-form"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            required
+            minlength="6"
+            value="123456bCa751X79"
+          />
+          <small id="passwordHelp" class="form-text text-muted"
+            >Minimum characters must be more or equal to 6.</small
+          >
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="checkPassword" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <!-- IF TO VERIFY REGISTER GET  -->
+        <% if (title.split("|")[1].trim() === "Register") { %>
+        <div class="form-group mt-4">
+          <label for="password-confirm-form">Confirm Password</label>
+          <input
+            type="password"
+            name="password_confirm"
+            class="form-control"
+            id="password-confirm-form"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            required
+            minlength="6"
+            style="text-transform: capitalize"
+            value="123456bCa751X79"
+          />
+          <small id="passwordHelp" class="fclick here to create an account.d"
+            >Must match with the password.</small
+          >
+        </div>
+        <% } %>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        <% if (title.split("|")[1].trim() === "Login") { %>
+        <a
+          style="text-transform: capitalize"
+          href="/register"
+          class="btn btn-link mt-3"
+          >Or click here to create an account.</a
+        >
+        <% } %>
+      </form>
+    </div>
+    <%- include("../partials/boostrap-script.ejs") %>
+    <script src="/script/index.js"></script>
+  </body>
+</html>
